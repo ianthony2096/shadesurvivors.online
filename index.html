@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monster Survivors - Fight Endless Waves of Monsters</title>
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FKFGLYC3D4"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'G-FKFGLYC3D4');
+        gtag('config', 'G-FKFGLYC3D4');
     </script>
-
-    <meta name="description" content="Survive endless waves of monsters in this action-packed roguelike game. Upgrade your character, collect powerful items, and face increasingly difficult challenges.">
-    <link rel="canonical" href="https://monstersurvivors.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Survivors - Survive the Horde in this Action-Packed Online Game</title>
+    <meta name="description" content="Play Monster Survivors online - an intense survival game where you battle endless hordes of monsters. No download required!">
+    <link rel="canonical" href="https://shadesurvivors.online">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,28 +37,26 @@
             }
         }
     </script>
-    <style type="text/css">
-        @media (max-width: 640px) {
-            .game-container {
-                height: 70vh;
-            }
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
 </head>
 <body class="bg-apple-lightgray text-apple-dark">
+    <!-- Header with Navigation -->
     <header class="bg-apple-blue text-white p-4 md:p-6 shadow-md">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-center md:text-left mb-4 md:mb-0">
                     <h1 class="text-3xl md:text-4xl font-bold">Monster Survivors</h1>
-                    <p class="text-lg mt-2">Survive and fight against endless waves of monsters!</p>
+                    <p class="text-lg mt-2">Survive endless waves of monsters in this addictive action game!</p>
                 </div>
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="#game" class="hover:text-apple-yellow transition-colors">Play Now</a></li>
-                        <li><a href="#about" class="hover:text-apple-yellow transition-colors">About</a></li>
                         <li><a href="#features" class="hover:text-apple-yellow transition-colors">Features</a></li>
-                        <li><a href="#controls" class="hover:text-apple-yellow transition-colors">Controls</a></li>
+                        <li><a href="#guide" class="hover:text-apple-yellow transition-colors">Guide</a></li>
                     </ul>
                 </nav>
             </div>
@@ -68,25 +64,55 @@
     </header>
 
     <main class="container mx-auto p-4 md:p-6">
+        <!-- Game Section -->
         <section id="game" class="my-8">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Play Monster Survivors</h2>
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div class="game-container w-full h-screen max-h-[600px]">
-                    <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
-                            class="w-full h-full border-0" 
-                            allowfullscreen></iframe>
+                <div class="game-container w-full relative">
+                    <div id="gameContainer" class="w-full h-[600px] md:h-[720px] lg:h-[800px]">
+                        <iframe id="gameFrame"
+                            src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                            class="w-full h-full"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <!-- 加载状态指示器 -->
+                    <div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-white text-center">
+                            <div class="animate-spin rounded-full h-12 w-12 border-4 border-white border-t-transparent mx-auto mb-4"></div>
+                            <p>Loading game...</p>
+                        </div>
+                    </div>
+
+                    <!-- 备用访问选项 -->
+                    <div id="fallbackContent" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-75 text-white p-4">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6">Choose How to Play</h3>
+                        <div class="space-y-4 text-center">
+                            <button onclick="tryAlternativeSource(0)" 
+                                    class="block w-full bg-apple-blue text-white px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all">
+                                Try Source 1
+                            </button>
+                            <button onclick="tryAlternativeSource(1)"
+                                    class="block w-full bg-apple-blue text-white px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all">
+                                Try Source 2
+                            </button>
+                            <a href="https://cloud.onlinegames.io/games2025/unity/monster-survivors/index-og.html" 
+                               target="_blank"
+                               class="block w-full bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all">
+                               Play in New Window
+                            </a>
+                        </div>
+                        <p class="mt-6 text-sm text-gray-300 max-w-md text-center">
+                            If the game doesn't load, try different sources or open in a new window for the best experience.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="my-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">About Monster Survivors</h2>
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <p class="mb-4">Monster Survivors is an action-packed roguelike survival game where you must fight against endless waves of monsters. Each run is unique, with random enemy spawns, power-ups, and challenges to overcome.</p>
-                <p>Inspired by games like Vampire Survivors, this game combines fast-paced action with strategic character building. How long can you survive as the difficulty continuously increases?</p>
-            </div>
-        </section>
-
+        <!-- Features Grid -->
         <section id="features" class="my-12">
             <h2 class="text-2xl md:text-3xl font-bold mb-6 text-apple-blue">Game Features</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -102,52 +128,61 @@
                     <h3 class="text-xl font-semibold text-apple-purple mb-3">Level Up System</h3>
                     <p>Gain experience by defeating enemies and level up to choose new weapons or upgrades.</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-red mb-3">Boss Battles</h3>
-                    <p>Face off against massive boss monsters that appear at specific time intervals.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-yellow mb-3">Treasure Chests</h3>
-                    <p>Find and open treasure chests to receive random items, gold, or special power-ups.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-blue mb-3">Daily Challenges</h3>
-                    <p>Complete daily challenges to earn rewards and climb the global leaderboard.</p>
-                </div>
             </div>
         </section>
 
-        <section id="controls" class="my-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Game Controls</h2>
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-apple-purple mb-3">Keyboard Controls</h3>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li><span class="font-semibold">WASD or Arrow Keys:</span> Move your character</li>
-                            <li><span class="font-semibold">Space:</span> Pause the game</li>
-                            <li><span class="font-semibold">E or Enter:</span> Select/Confirm</li>
-                            <li><span class="font-semibold">Esc:</span> Back/Menu</li>
-                        </ul>
+        <!-- Game Guide Section -->
+        <section id="guide" class="my-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Controls & How to Play -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Game Controls</h2>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-apple-purple mb-3">Keyboard Controls</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><span class="font-semibold">WASD or Arrow Keys:</span> Move your character</li>
+                                    <li><span class="font-semibold">Space:</span> Pause the game</li>
+                                    <li><span class="font-semibold">E or Enter:</span> Select/Confirm</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-apple-orange mb-3">How to Play</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Move to avoid enemies</li>
+                                    <li>Collect experience gems to level up</li>
+                                    <li>Choose new abilities as you level</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-apple-orange mb-3">Mobile Controls</h3>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li><span class="font-semibold">Virtual Joystick:</span> Appears on the left side of the screen for movement</li>
-                            <li><span class="font-semibold">Tap Buttons:</span> Menu and action buttons on the right side</li>
-                            <li><span class="font-semibold">Swipe:</span> Navigate menus and selection screens</li>
-                        </ul>
+                </div>
+
+                <!-- Tips Section -->
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Tips & Tricks</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg shadow-lg p-5">
+                            <h3 class="text-lg font-semibold mb-2">Beginner Tips</h3>
+                            <p>Focus on movement speed early on to avoid getting cornered. Always keep moving and try to group enemies together for maximum damage output.</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-5">
+                            <h3 class="text-lg font-semibold mb-2">Advanced Strategy</h3>
+                            <p>Build synergistic abilities that complement each other. For example, pair area damage skills with slowing effects to control large groups of monsters.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-apple-dark text-white p-6">
+    <!-- Footer -->
+    <footer class="bg-apple-dark text-white p-6 mt-8">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Monster Survivors. All rights reserved.</p>
+                    <p>&copy; 2023 Monster Survivors. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="hover:text-apple-blue transition-colors">Privacy Policy</a>
@@ -158,24 +193,73 @@
         </div>
     </footer>
 
-    <!-- JSON-LD structured data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoGame",
-        "name": "Monster Survivors",
-        "description": "Survive endless waves of monsters in this action-packed roguelike game. Upgrade your character, collect powerful items, and face increasingly difficult challenges.",
-        "genre": ["Action", "Roguelike", "Survival"],
-        "playMode": "SinglePlayer",
-        "applicationCategory": "Game",
-        "url": "https://monstersurvivors.com",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
+    <!-- 在 body 结束标签前添加新的脚本 -->
+    <script>
+        const gameSources = [
+            'https://cloud.onlinegames.io/games2025/unity/monster-survivors/index-og.html',
+            'https://games.construct.net/monster-survivors/latest',
+            // 可以添加更多备用源
+        ];
+        
+        const gameFrame = document.getElementById('gameFrame');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const fallbackContent = document.getElementById('fallbackContent');
+        let currentSourceIndex = 0;
+
+        function tryAlternativeSource(sourceIndex) {
+            if (sourceIndex < gameSources.length) {
+                currentSourceIndex = sourceIndex;
+                loadingIndicator.style.display = 'flex';
+                fallbackContent.classList.add('hidden');
+                gameFrame.src = gameSources[sourceIndex];
+            }
         }
-    }
+
+        function checkGameLoad() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    try {
+                        const frameContent = gameFrame.contentWindow || gameFrame.contentDocument;
+                        if (!frameContent || frameContent.length === 0) {
+                            reject(new Error('Cannot access game content'));
+                        } else {
+                            resolve();
+                        }
+                    } catch (e) {
+                        reject(e);
+                    }
+                }, 5000); // 给予5秒加载时间
+            });
+        }
+
+        async function handleGameLoad() {
+            try {
+                await checkGameLoad();
+                loadingIndicator.style.display = 'none';
+            } catch (e) {
+                loadingIndicator.style.display = 'none';
+                fallbackContent.classList.remove('hidden');
+            }
+        }
+
+        gameFrame.onload = handleGameLoad;
+        gameFrame.onerror = () => {
+            loadingIndicator.style.display = 'none';
+            fallbackContent.classList.remove('hidden');
+        };
+
+        // 初始加载检查
+        handleGameLoad();
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
