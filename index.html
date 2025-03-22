@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monster Survivors - Survive the Horde in this Action-Packed Online Game</title>
-    <meta name="description" content="Play Monster Survivors online - an intense survival game where you battle endless hordes of monsters. No download required!">
+    <title>Online Game Hub - Play Multiple Games Instantly</title>
+    <meta name="description" content="Play a variety of exciting online games with no download required. From action to strategy, we have games for everyone!">
     <link rel="canonical" href="https://shadesurvivors.online">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -41,6 +41,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
     </style>
 </head>
 <body class="bg-apple-lightgray text-apple-dark">
@@ -49,13 +56,13 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-center md:text-left mb-4 md:mb-0">
-                    <h1 class="text-3xl md:text-4xl font-bold">Monster Survivors</h1>
-                    <p class="text-lg mt-2">Survive endless waves of monsters in this addictive action game!</p>
+                    <h1 class="text-3xl md:text-4xl font-bold">Online Game Hub</h1>
+                    <p class="text-lg mt-2">Play exciting games instantly in your browser!</p>
                 </div>
                 <nav>
                     <ul class="flex space-x-4">
+                        <li><a href="#games" class="hover:text-apple-yellow transition-colors">Games</a></li>
                         <li><a href="#game" class="hover:text-apple-yellow transition-colors">Play Now</a></li>
-                        <li><a href="#features" class="hover:text-apple-yellow transition-colors">Features</a></li>
                         <li><a href="#guide" class="hover:text-apple-yellow transition-colors">Guide</a></li>
                     </ul>
                 </nav>
@@ -64,8 +71,46 @@
     </header>
 
     <main class="container mx-auto p-4 md:p-6">
+        <!-- Game Library Section -->
+        <section id="games" class="my-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-apple-blue">Game Library</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Game 1 -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer h-auto" onclick="loadGame('monster-survivors')">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-apple-orange mb-3">Monster Survivors</h3>
+                        <p class="text-gray-600 mb-4">Survive endless waves of monsters in this action-packed game!</p>
+                        <div class="flex items-center mt-auto">
+                            <span class="bg-apple-green text-white text-xs px-2 py-1 rounded-full">Action</span>
+                            <span class="ml-2 text-xs text-gray-500">★★★★☆</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer h-auto" onclick="loadGame('kill-the-king')">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-apple-red mb-3">Kill The King</h3>
+                        <p class="text-gray-600 mb-4">Defeat King Trost! Press spacebar quickly to fight!</p>
+                        <div class="flex items-center mt-auto">
+                            <span class="bg-apple-red text-white text-xs px-2 py-1 rounded-full">Action</span>
+                            <span class="ml-2 text-xs text-gray-500">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Game Section -->
         <section id="game" class="my-8">
+            <div class="flex items-center justify-between mb-4">
+                <h2 id="currentGameTitle" class="text-2xl md:text-3xl font-bold text-apple-blue">Monster Survivors</h2>
+                <div>
+                    <button id="fullscreenBtn" class="bg-apple-blue text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        Fullscreen
+                    </button>
+                </div>
+            </div>
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div class="game-container w-full relative">
                     <div id="gameContainer" class="w-full h-[600px] md:h-[720px] lg:h-[800px]">
@@ -98,7 +143,7 @@
                                     class="block w-full bg-apple-blue text-white px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all">
                                 Try Source 2
                             </button>
-                            <a href="https://cloud.onlinegames.io/games2025/unity/monster-survivors/index-og.html" 
+                            <a id="newWindowLink" href="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
                                target="_blank"
                                class="block w-full bg-green-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all">
                                Play in New Window
@@ -112,66 +157,35 @@
             </div>
         </section>
 
-        <!-- Features Grid -->
-        <section id="features" class="my-12">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-apple-blue">Game Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-orange mb-3">Multiple Characters</h3>
-                    <p>Choose from various characters, each with unique starting weapons and abilities.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-green mb-3">Weapon Evolution</h3>
-                    <p>Combine weapons and passive items to create powerful evolved weapons with special effects.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-apple-purple mb-3">Level Up System</h3>
-                    <p>Gain experience by defeating enemies and level up to choose new weapons or upgrades.</p>
+        <!-- Game Info Section (Dynamic based on selected game) -->
+        <section id="gameInfo" class="my-12">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 id="gameInfoTitle" class="text-2xl font-bold mb-4 text-apple-blue">About Monster Survivors</h2>
+                <div id="gameInfoContent" class="prose max-w-none">
+                    <p>Monster Survivors is an intense survival game where you battle endless hordes of monsters. Choose from various characters, each with unique starting weapons and abilities.</p>
+                    <p class="mt-3">The game features:</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-3">
+                        <li><span class="font-semibold">Multiple Characters:</span> Each with unique starting weapons.</li>
+                        <li><span class="font-semibold">Weapon Evolution:</span> Combine weapons with passive items.</li>
+                        <li><span class="font-semibold">Level Up System:</span> Gain XP and choose new abilities.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Game Guide Section -->
         <section id="guide" class="my-12">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Controls & How to Play -->
-                <div class="lg:col-span-2">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Game Controls</h2>
-                    <div class="bg-white rounded-lg shadow-lg p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-apple-purple mb-3">Keyboard Controls</h3>
-                                <ul class="list-disc pl-5 space-y-2">
-                                    <li><span class="font-semibold">WASD or Arrow Keys:</span> Move your character</li>
-                                    <li><span class="font-semibold">Space:</span> Pause the game</li>
-                                    <li><span class="font-semibold">E or Enter:</span> Select/Confirm</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-apple-orange mb-3">How to Play</h3>
-                                <ul class="list-disc pl-5 space-y-2">
-                                    <li>Move to avoid enemies</li>
-                                    <li>Collect experience gems to level up</li>
-                                    <li>Choose new abilities as you level</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-apple-blue">Tips & Tricks</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-apple-orange mb-3">Beginner Tips</h3>
+                    <p>Focus on movement speed early on to avoid getting cornered. Always keep moving and try to group enemies together for maximum damage output.</p>
+                    <p class="mt-3">For most games in our collection, mastering the basic controls and understanding core mechanics will give you a solid foundation to build upon.</p>
                 </div>
-
-                <!-- Tips Section -->
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-apple-blue">Tips & Tricks</h2>
-                    <div class="space-y-4">
-                        <div class="bg-white rounded-lg shadow-lg p-5">
-                            <h3 class="text-lg font-semibold mb-2">Beginner Tips</h3>
-                            <p>Focus on movement speed early on to avoid getting cornered. Always keep moving and try to group enemies together for maximum damage output.</p>
-                        </div>
-                        <div class="bg-white rounded-lg shadow-lg p-5">
-                            <h3 class="text-lg font-semibold mb-2">Advanced Strategy</h3>
-                            <p>Build synergistic abilities that complement each other. For example, pair area damage skills with slowing effects to control large groups of monsters.</p>
-                        </div>
-                    </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-3">Advanced Strategy</h3>
+                    <p>Build synergistic abilities that complement each other. For example, pair area damage skills with slowing effects to control large groups of monsters.</p>
+                    <p class="mt-3">Each game has unique strategies to master. Experiment with different approaches and find what works best for your playstyle.</p>
                 </div>
             </div>
         </section>
@@ -182,7 +196,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Monster Survivors. All rights reserved.</p>
+                    <p>&copy; 2025 Online Game Hub. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="hover:text-apple-blue transition-colors">Privacy Policy</a>
@@ -193,25 +207,86 @@
         </div>
     </footer>
 
-    <!-- 在 body 结束标签前添加新的脚本 -->
+    <!-- 脚本 -->
     <script>
-        const gameSources = [
-            'https://cloud.onlinegames.io/games2025/unity/monster-survivors/index-og.html',
-            'https://games.construct.net/monster-survivors/latest',
-            // 可以添加更多备用源
-        ];
+        // 游戏数据库
+        const games = {
+            'monster-survivors': {
+                title: 'Monster Survivors',
+                sources: [
+                    'https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html',
+                ],
+                description: `
+                    <p>Monster Survivors is an intense survival game where you battle endless hordes of monsters. Choose from various characters, each with unique starting weapons and abilities.</p>
+                    <p class="mt-3">The game features:</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-3">
+                        <li><span class="font-semibold">Multiple Characters:</span> Each with unique starting weapons.</li>
+                        <li><span class="font-semibold">Weapon Evolution:</span> Combine weapons with passive items.</li>
+                        <li><span class="font-semibold">Level Up System:</span> Gain XP and choose new abilities.</li>
+                    </ul>
+                `
+            },
+            'kill-the-king': {
+                title: 'Kill The King',
+                sources: [
+                    'https://haiyong.site/moyu/kill-the-king.html',
+                    'https://haiyong.site/moyu/kill-the-king.html'
+                ],
+                description: `
+                    <p>In Kill The King, your goal is to defeat King Trost! Press the spacebar quickly to fight and level up your character.</p>
+                    <p class="mt-3">Game features:</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-3">
+                        <li><span class="font-semibold">Experience System:</span> Collect XP to enhance your abilities.</li>
+                        <li><span class="font-semibold">Character Attributes:</span> Improve strength, intelligence, and speed attributes.</li>
+                        <li><span class="font-semibold">Skill Upgrades:</span> Use coins and experience to purchase skill upgrades.</li>
+                        <li><span class="font-semibold">Multiple Stages:</span> Progress through multiple stages to challenge the final boss.</li>
+                    </ul>
+                `
+            }
+        };
         
         const gameFrame = document.getElementById('gameFrame');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const fallbackContent = document.getElementById('fallbackContent');
+        const currentGameTitle = document.getElementById('currentGameTitle');
+        const gameInfoTitle = document.getElementById('gameInfoTitle');
+        const gameInfoContent = document.getElementById('gameInfoContent');
+        const newWindowLink = document.getElementById('newWindowLink');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        
+        let currentGame = 'monster-survivors';
         let currentSourceIndex = 0;
 
+        // 加载指定游戏
+        function loadGame(gameId) {
+            if (games[gameId]) {
+                currentGame = gameId;
+                currentSourceIndex = 0;
+                
+                // 更新游戏标题和描述
+                currentGameTitle.textContent = games[gameId].title;
+                gameInfoTitle.textContent = `About ${games[gameId].title}`;
+                gameInfoContent.innerHTML = games[gameId].description;
+                
+                // 更新游戏框架源
+                loadingIndicator.style.display = 'flex';
+                gameFrame.src = games[gameId].sources[0];
+                
+                // 更新新窗口链接
+                newWindowLink.href = games[gameId].sources[0];
+                
+                // 滚动到游戏部分
+                document.getElementById('game').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         function tryAlternativeSource(sourceIndex) {
-            if (sourceIndex < gameSources.length) {
+            if (sourceIndex < games[currentGame].sources.length) {
                 currentSourceIndex = sourceIndex;
                 loadingIndicator.style.display = 'flex';
                 fallbackContent.classList.add('hidden');
-                gameFrame.src = gameSources[sourceIndex];
+                gameFrame.src = games[currentGame].sources[sourceIndex];
+                newWindowLink.href = games[currentGame].sources[sourceIndex];
             }
         }
 
@@ -219,16 +294,12 @@
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     try {
-                        const frameContent = gameFrame.contentWindow || gameFrame.contentDocument;
-                        if (!frameContent || frameContent.length === 0) {
-                            reject(new Error('Cannot access game content'));
-                        } else {
-                            resolve();
-                        }
+                        // 简化游戏加载检查
+                        resolve();
                     } catch (e) {
                         reject(e);
                     }
-                }, 5000); // 给予5秒加载时间
+                }, 5000);
             });
         }
 
@@ -242,6 +313,18 @@
             }
         }
 
+        // 全屏功能
+        fullscreenBtn.addEventListener('click', () => {
+            const gameContainer = document.getElementById('gameContainer');
+            if (gameContainer.requestFullscreen) {
+                gameContainer.requestFullscreen();
+            } else if (gameContainer.webkitRequestFullscreen) {
+                gameContainer.webkitRequestFullscreen();
+            } else if (gameContainer.msRequestFullscreen) {
+                gameContainer.msRequestFullscreen();
+            }
+        });
+
         gameFrame.onload = handleGameLoad;
         gameFrame.onerror = () => {
             loadingIndicator.style.display = 'none';
@@ -251,7 +334,7 @@
         // 初始加载检查
         handleGameLoad();
 
-        // Add smooth scroll behavior
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -259,6 +342,22 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // 初始化网站时立即加载默认游戏
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置默认游戏
+            loadGame('monster-survivors');
+            
+            // 改进加载指示器行为
+            loadingIndicator.style.display = 'flex';
+            
+            // 添加超时处理，确保加载指示器不会无限显示
+            setTimeout(() => {
+                if (loadingIndicator.style.display === 'flex') {
+                    loadingIndicator.style.display = 'none';
+                }
+            }, 8000); // 8秒后自动隐藏加载指示器
         });
     </script>
 </body>
